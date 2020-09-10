@@ -1,6 +1,6 @@
 # Práticas Profissionais em Análise e Desenvolvimento de Sistemas
 
-## Documentação do Projeto do Semestre
+## Projeto do Semestre
 
 ### Alunos:
 
