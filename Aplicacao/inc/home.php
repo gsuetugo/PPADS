@@ -34,6 +34,21 @@
             </div>
         </div>
         <div class="row py-5">
+            <div class="col-12 text-center">
+                <h1>Teste agora nossa plataforma!</h1>
+            </div>
+            <div class="col-12 mt-3">
+                <form action="catalogo" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg" name="busca" placeholder="Pesquise o serviço desejado" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-tema" type="submit"><i class="material-icons text-white">search</i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row py-5">
             <div class="col-md-6 col-sm-12">
                 <div class="card shadow p-4 h-100">
                     <h1><span>Você</span> contrata?</h1>

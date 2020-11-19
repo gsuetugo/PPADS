@@ -12,6 +12,7 @@ $pg_acessada = new pg_acessada();
     <title>Marido de Aluguel</title>
     <!-- <link rel="icon" href="/<?=$url->getComplemento()?>adm/uploads/images/"> -->
     <link rel="stylesheet" type="text/css" href="/<?=$url->getComplemento()?>css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/<?=$url->getComplemento()?>css/custom.css">
 </head>
 <body>
