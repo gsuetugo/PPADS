@@ -2,6 +2,9 @@
 include('config/class.php');
 $url = new url();
 $pg_acessada = new pg_acessada();
+$crud = new dados();
+$sql_estados = 'SELECT id_estado, uf FROM estado';
+$estados = $crud->getSQLGeneric($sql_estados);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -86,7 +89,12 @@ $pg_acessada = new pg_acessada();
                             </div>
                             <div class="form-group col-2">
                                 <label for="uf">UF:</label>
-                                <input type="text" class="form-control" name="uf" required>
+                                <select class="custom-select" name="uf">
+                                    <?php
+                                    foreach ($estados as $estado) { ?>
+                                        <option value="<?=$estado->id_estado?>"><?=$estado->uf?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                         </div>
                         <small id="respostacontratante"></small>
@@ -162,7 +170,12 @@ $pg_acessada = new pg_acessada();
                             </div>
                             <div class="form-group col-2">
                                 <label for="uf">UF:</label>
-                                <input type="text" class="form-control" name="uf">
+                                <select class="custom-select" name="uf">
+                                    <?php
+                                    foreach ($estados as $estado) { ?>
+                                        <option value="<?=$estado->id_estado?>"><?=$estado->uf?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group text-center">
