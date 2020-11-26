@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once('config/class.php');
+require_once('../config/class.php');
 
 $url = new url();
 

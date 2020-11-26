@@ -93,7 +93,7 @@ $servicos = $crud->getSQLGeneric($sql_servicos);
                             <div class="form-group col-2">
                                 <label for="uf">UF:</label>
                                 <select class="custom-select" name="uf">
-                                    <option value="" selected>Selecione o estado</option>
+                                    <option value="" selected>UF</option>
                                     <?php
                                     foreach ($estados as $estado) { ?>
                                         <option value="<?=$estado->id_estado?>"><?=$estado->uf?></option>
@@ -175,7 +175,7 @@ $servicos = $crud->getSQLGeneric($sql_servicos);
                             <div class="form-group col-2">
                                 <label for="uf">UF:</label>
                                 <select class="custom-select" name="uf">
-                                    <option value="" selected>Selecione o estado</option>
+                                    <option value="" selected>UF</option>
                                     <?php
                                     foreach ($estados as $estado) { ?>
                                         <option value="<?=$estado->id_estado?>"><?=$estado->uf?></option>
