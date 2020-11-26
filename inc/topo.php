@@ -12,10 +12,10 @@
                         <?php
                         if ($_SESSION['logado_contratado']) { ?>
                             <p class="text-white">Seja Bem-Vindo <?=$_SESSION['nome_contratado']?></p>
-                            <a href="/<?=$url->getComplemento()?>/sair">Sair</a>
+                            <a href="" onclick="sair()">Sair</a>
                         <?php } elseif ($_SESSION['logado_contratante']) { ?>
                             <p class="text-white">Seja Bem-Vindo <?=$_SESSION['nome_contratante']?></p>
-                            <a href="/<?=$url->getComplemento()?>/sair">Sair</a>
+                            <a href="" onclick="sair()">Sair</a>
                         <?php } else { ?>
                             <div class="d-flex justify-content-between align-items-center">
                                 <button type="button" class="btn btn-tema" data-toggle="modal" data-target="#modalLogin">Entrar</button>

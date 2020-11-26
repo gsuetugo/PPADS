@@ -234,7 +234,7 @@ $servicos = $crud->getSQLGeneric($sql_servicos);
                         </div>
                         <small id="respostalogin"></small>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-tema">Salvar</button>
+                        <button type="submit" class="btn btn-tema">Entrar</button>
                     </form>
                 </div>
             </div>

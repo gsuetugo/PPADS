@@ -70,6 +70,7 @@ $('#formLogin').submit(function(event) {
         var obj = JSON.parse(resp);
         if(obj.codigo == 1){
             $('#respostalogin').html('<p class="alert alert-success text-success">' + obj.mensagem + '</p>');
+            location.reload();
         }else{
             $('#respostalogin').html('<p class="alert alert-danger text-danger">' + obj.mensagem + '</p>');
         }
@@ -82,4 +83,17 @@ $('#formLogin').submit(function(event) {
 function categoria(id, atributo) {
     $('#atributo_categoria').html(atributo);
     $('#id_categoria').val(id);
+}
+
+function sair() {
+    $.ajax({
+        url : 'inc/sair.php',
+        type : 'post',
+    })
+    .done(function(){
+        location.reload();
+    })
+    .fail(function(jqXHR, textStatus){
+        $('#respostalogin').html('<p class="alert alert-danger text-danger">Ops! Ocorreu um erro, tente novamente mais tarde</p>');
+    });
 }
