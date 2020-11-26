@@ -7,7 +7,7 @@ class url
     public function __construct()
     {
         $this->setComplemento('adm/');
-        $this->setProtocolo('http://');
+        $this->setProtocolo('https://');
     }
 
     public function getComplemento()

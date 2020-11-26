@@ -1,5 +1,6 @@
 <?php
 include('config/class.php');
+session_start();
 $url = new url();
 $pg_acessada = new pg_acessada();
 $crud = new dados();
@@ -194,6 +195,40 @@ $servicos = $crud->getSQLGeneric($sql_servicos);
                             </select>
                         </div>
                         <small id="respostacontratado"></small>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-tema">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLoginLabel">Faça o login em sua conta!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formLogin">
+                        <label for="tipo">Você é:</label>
+                        <select class="custom-select" name="tipo">
+                            <option selected>Selecione uma opção</option>
+                            <option value="1">Contratante</option>
+                            <option value="2">Profissional</option>
+                        </select>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha:</label>
+                            <input type="password" class="form-control" name="senha">
+                        </div>
+                        <small id="respostalogin"></small>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-tema">Salvar</button>
                     </form>

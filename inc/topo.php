@@ -9,9 +9,16 @@
                     </a>
 
                     <div class="d-none d-sm-none d-md-none d-lg-block">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a class="btn btn-tema">Entrar</a>
-                        </div>
+                        <?php
+                        if ($_SESSION['logado_contratado']) { ?>
+                            <p class="text-white">Seja Bem-Vindo <?=$_SESSION['nome_contratado']?></p>
+                        <?php } elseif ($_SESSION['logado_contratante']) { ?>
+                            <p class="text-white">Seja Bem-Vindo <?=$_SESSION['nome_contratante']?></p>
+                        <?php } else { ?>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button type="button" class="btn btn-tema" data-toggle="modal" data-target="#modalLogin">Entrar</button>
+                            </div>
+                        <?php } ?>
                     </div>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
