@@ -5,7 +5,6 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == 'SIM') {
 }
 require_once('config/configuracao.php');
 $url = new url();
-$pg_acessada = new pg_acessada();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

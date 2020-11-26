@@ -59,11 +59,10 @@ try {
 }
 $array = array(
     'id_contratado' => $id_contratado,
-    'tipo_servico' => $_POST['tipo'],
-    'descricao' => $_POST['descricao']
+    'id_servico' => $_POST['servico']
 );
 try {
-    $crud = new dados('servico');
+    $crud = new dados('contratado_servico');
     if ($crud->insert($array)) {
         echo json_encode(
             array(

@@ -27,6 +27,9 @@
                             <a class="nav-link <?=$pg_acessada->getAtual($pg_acessada->getContagem() - 1) == 'home' ? 'active' : ''?>" href="/<?=$url->getComplemento()?>">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link <?=$pg_acessada->getAtual($pg_acessada->getContagem() - 1) == 'catalogo' ? 'active' : ''?>" href="/<?=$url->getComplemento()?>catalogo">Catálogo</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link <?=$pg_acessada->getAtual($pg_acessada->getContagem() - 1) == 'contratante' ? 'active' : ''?>" href="/<?=$url->getComplemento()?>">Para Contratante</a>
                         </li>
                         <li class="nav-item">

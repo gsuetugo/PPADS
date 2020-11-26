@@ -8,8 +8,8 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == 'NAO') {
     header('Location: /'.$url->getComplemento());
 } else {
     $dados = new dados();
-    $arrayParam = array($_SESSION['id'], $_SESSION['nome'], $_SESSION['email']);
-    $sql_usuarios = 'SELECT id FROM usuarios WHERE id = ? AND nome = ? AND email = ?';
+    $sql_usuarios = 'SELECT id_admin FROM admin WHERE id_admin = ? AND nome = ? AND email = ?';
+    $arrayParam = array($_SESSION['id_admin'], $_SESSION['nome'], $_SESSION['email']);
     $usuarios = $dados->getSQLGeneric($sql_usuarios, $arrayParam, FALSE);
     if (!$usuarios) {
         session_start();

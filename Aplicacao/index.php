@@ -5,6 +5,8 @@ $pg_acessada = new pg_acessada();
 $crud = new dados();
 $sql_estados = 'SELECT id_estado, uf FROM estado';
 $estados = $crud->getSQLGeneric($sql_estados);
+$sql_servicos = 'SELECT id_servico, tipo_servico FROM servico';
+$servicos = $crud->getSQLGeneric($sql_servicos);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -171,6 +173,7 @@ $estados = $crud->getSQLGeneric($sql_estados);
                             <div class="form-group col-2">
                                 <label for="uf">UF:</label>
                                 <select class="custom-select" name="uf">
+                                    <option value="" selected>Selecione o estado</option>
                                     <?php
                                     foreach ($estados as $estado) { ?>
                                         <option value="<?=$estado->id_estado?>"><?=$estado->uf?></option>
@@ -182,12 +185,13 @@ $estados = $crud->getSQLGeneric($sql_estados);
                             <h5>Serviços</h5>
                         </div>
                         <div class="form-group">
-                            <label for="tipo">Tipo de serviço:</label>
-                            <input type="text" class="form-control" name="tipo">
-                        </div>
-                        <div class="form-group">
-                            <label for="descricao">Descrição do serviço</label>
-                            <textarea class="form-control" name="descricao" rows="4"></textarea>
+                            <select class="custom-select" name="servico">
+                                <option value="" selected>Selecione o tipo de serviço prestado</option>
+                                <?php
+                                foreach ($servicos as $servico) { ?>
+                                    <option value="<?=$servico->id_servico?>"><?=$servico->tipo_servico?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                         <small id="respostacontratado"></small>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

@@ -17,11 +17,7 @@ $('#formGravar').submit(function(event) {
         var obj = JSON.parse(resp);
         if (obj.codigo == 1) {
             $('#resposta').html('<p class="alert alert-success text-success">' + obj.mensagem + '</p>');
-            if(obj.redirecionar == 1) {
-                window.location.href = $('#formGravar').attr('name');
-            } else {
-                atualzar();
-            }
+            window.location.href = $('#formGravar').attr('name');
         } else {
             $('#resposta').html('<p class="alert alert-danger text-danger">' + obj.mensagem + '</p>');
         }
@@ -60,10 +56,6 @@ $('#formEditar').submit(function(event) {
     });
 });
 
-function editar(id) {
-    window.location.href = '?editar=' + id;
-};
-
 function excluir(id) {
     decisao = confirm("Tem certeza que deseja excluir?");
     if (decisao) {
@@ -92,6 +84,40 @@ function excluir(id) {
         });
     }
 };
+
+function editar(id) {
+    window.location.href = '?editar=' + id;
+};
+
+function visualizar(id) {
+    window.location.href = '?visualizar=' + id;
+};
+
+function aprovar(id) {
+    var formData = new FormData();
+    formData.append('id', id);
+    formData.append('status', 1);
+    formData.append('tabela', $('#tabela').attr('name'));
+    $.ajax({
+        url : 'inc/editar.php',
+        type : 'post',
+        data : formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+    .done(function(resp) {
+        var obj = JSON.parse(resp);
+        if (obj.codigo == 1) {
+            alert('Aprovado com sucesso!');
+        } else {
+            alert(obj.mensagem);
+        }
+    })
+    .fail(function(jqXHR, textStatus) {
+        alert('Ops! Ocorreu um erro, tente novamente mais tarde');
+    });
+}
 
 $(document).ready(function () {
     $('#menuLateral').on('click', function () {

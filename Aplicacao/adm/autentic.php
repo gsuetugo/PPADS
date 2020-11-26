@@ -45,7 +45,7 @@ if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
 $conexao = new conexao();
 
 try {
-    $sql = 'SELECT id, nome, senha, email, permissao FROM usuarios WHERE email = :email LIMIT 1';
+    $sql = 'SELECT id_admin, nome, senha, email FROM admin WHERE email = :email LIMIT 1';
     $stmt = $conexao->getConn()->prepare($sql);
     $stmt->execute(array(
         'email' => $_POST['email']
@@ -62,11 +62,9 @@ try {
 }
 
 if (!empty($retorno) && password_verify($_POST['senha'], $retorno->senha)) {
-    $_SESSION['id'] = $retorno->id;
+    $_SESSION['id_admin'] = $retorno->id_admin;
     $_SESSION['nome'] = $retorno->nome;
     $_SESSION['email'] = $retorno->email;
-    $_SESSION['permissao'] = $retorno->permissao;
-    $_SESSION['tentativas'] = 0;
     $_SESSION['logado'] = 'SIM';
 } else {
     $_SESSION['logado'] = 'NAO';
