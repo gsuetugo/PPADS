@@ -62,7 +62,7 @@ if ($_POST['tipo'] == 'contratante') {
         exit();
     }
 
-    if (!empty($retorno) && password_verify($_POST['senha'], $retorno->senha_contratado)) {
+    if (!empty($retorno) && password_verify($_POST['senha'], $retorno->senha_contratante)) {
         $_SESSION['id_contratante'] = $retorno->id_contratante;
         $_SESSION['nome_contratante'] = $retorno->nome_contratante;
         $_SESSION['email_contratante'] = $retorno->email_contratante;
