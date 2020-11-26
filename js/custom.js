@@ -78,3 +78,8 @@ $('#formLogin').submit(function(event) {
         $('#respostalogin').html('<p class="alert alert-danger text-danger">Ops! Ocorreu um erro, tente novamente mais tarde</p>');
     });
 });
+
+function categoria(id, atributo) {
+    $('#atributo_categoria').html(atributo);
+    $('#id_categoria').val(id);
+}

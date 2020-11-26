@@ -238,6 +238,43 @@ $servicos = $crud->getSQLGeneric($sql_servicos);
         </div>
     </div>
 
+    <div class="modal fade" id="modalOrcamento" tabindex="-1" aria-labelledby="modalOrcamentoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalOrcamentoLabel">Solicite seu Orçamento!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <?php
+                    if ($_SESSION['logado_contratante'] == "SIM") { ?>
+                        <form id="formOrcamento">
+                            <div class="form-group">
+                                <label for="atributo" id="atributo_categoria"></label>
+                                <input type="email" class="form-control" name="atributo">
+                            </div>
+                            <div class="form-group">
+                                <label for="descricao">Descrição</label>
+                                <textarea class="form-control" name="descricao" rows="4"></textarea>
+                            </div>
+                            <input type="hidden" id="id_categoria" name="id_categoria" value="">
+                            <small id="respostaorcamento"></small>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-tema">Salvar</button>
+                        </form>
+                    <?php } else { ?>
+                        <div class="text-center">
+                            <p><b>Por Favor, realize seu login</b></p>
+                            <button type="button" class="btn btn-tema" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalLogin">Entrar</button>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="/<?=$url->getComplemento()?>js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="/<?=$url->getComplemento()?>js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/<?=$url->getComplemento()?>js/custom.js"></script>
