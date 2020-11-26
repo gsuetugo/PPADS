@@ -6,7 +6,7 @@ class url
 
     public function __construct()
     {
-        $this->setComplemento('projeto/adm/');
+        $this->setComplemento('adm/');
         $this->setProtocolo('http://');
     }
 
