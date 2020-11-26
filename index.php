@@ -229,6 +229,9 @@ $servicos = $crud->getSQLGeneric($sql_servicos);
                             <label for="senha">Senha:</label>
                             <input type="password" class="form-control" name="senha">
                         </div>
+                        <div class="form-group">
+                            <a href="">Esqueci minha senha</a>
+                        </div>
                         <small id="respostalogin"></small>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-tema">Salvar</button>
