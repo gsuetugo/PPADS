@@ -254,6 +254,7 @@ $servicos = $crud->getSQLGeneric($sql_servicos);
                     <?php
                     if ($_SESSION['logado_contratante'] == "SIM") { ?>
                         <form id="formOrcamento">
+                            <p class="alert alert-danger text-danger">Função ainda não implementada</p>
                             <div class="form-group">
                                 <label for="atributo" id="atributo_categoria"></label>
                                 <input type="email" class="form-control" name="atributo">
@@ -263,10 +264,16 @@ $servicos = $crud->getSQLGeneric($sql_servicos);
                                 <textarea class="form-control" name="descricao" rows="4"></textarea>
                             </div>
                             <input type="hidden" id="id_categoria" name="id_categoria" value="">
+                            <input type="hidden" id="id_contratante" name="id_contratante" value="<?=$_SESSION['logado_contratante']?>">
                             <small id="respostaorcamento"></small>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-tema">Salvar</button>
                         </form>
+                    <?php } elseif ($_SESSION['logado_contratado'] == "SIM") { ?>
+                        <div class="text-center">
+                            <p><b>Por Favor, realize seu login como contratante</b></p>
+                            <button type="button" class="btn btn-tema" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalLogin">Entrar</button>
+                        </div>
                     <?php } else { ?>
                         <div class="text-center">
                             <p><b>Por Favor, realize seu login</b></p>

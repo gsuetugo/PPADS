@@ -5,18 +5,6 @@ require_once('config/configuracao.php');
 
 $url = new url();
 
-if (isset($_SERVER['HTTP_REFERER'])
-    && $_SERVER['HTTP_REFERER'] <> $url->getProtocolo().$_SERVER['SERVER_NAME'].'/'.$url->getComplemento()
-    && $_SERVER['HTTP_REFERER'] <> $url->getProtocolo().$_SERVER['SERVER_NAME'].'/'.$url->getComplemento().'index.php') {
-    echo json_encode(
-        array(
-            'codigo' => 0,
-            'mensagem' => 'Origem da requisição não autorizada!'
-        )
-    );
-    exit();
-}
-
 if (empty($_POST['email'])) {
     echo json_encode(
         array(

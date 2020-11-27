@@ -15,7 +15,7 @@
 <div class="container pb-5">
     <div class="row">
         <?php
-        $sql_servicos = 'SELECT id_servico, tipo_servico, atributo_servico FROM servico';
+        $sql_servicos = 'SELECT servico.id_servico, servico.tipo_servico, servico.atributo_servico FROM servico INNER JOIN contratado_servico ON servico.id_servico = contratado_servico.id_servico GROUP BY servico.id_servico';
         $servicos = $crud->getSQLGeneric($sql_servicos);
         foreach ($servicos as $servico) { ?>
             <div class="col-md-4 col-sm-12 my-3">

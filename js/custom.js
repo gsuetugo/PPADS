@@ -80,6 +80,34 @@ $('#formLogin').submit(function(event) {
     });
 });
 
+$('#formOrcamento').submit(function(event) {
+    event.preventDefault();
+    var formData = new FormData($('#formOrcamento')[0]);
+    $.ajax({
+        url : 'inc/solicitarorcamento.php',
+        type : 'post',
+        data : formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        beforeSend : function(){
+            $('#respostalogin').html('<p class="alert alert-success text-success">Carregando...</p>');
+        }
+    })
+    .done(function(resp){
+        var obj = JSON.parse(resp);
+        if(obj.codigo == 1){
+            $('#respostaorcamento').html('<p class="alert alert-success text-success">' + obj.mensagem + '</p>');
+            location.reload();
+        }else{
+            $('#respostaorcamento').html('<p class="alert alert-danger text-danger">' + obj.mensagem + '</p>');
+        }
+    })
+    .fail(function(jqXHR, textStatus){
+        $('#respostaorcamento').html('<p class="alert alert-danger text-danger">Ops! Ocorreu um erro, tente novamente mais tarde</p>');
+    });
+});
+
 function categoria(id, atributo) {
     $('#atributo_categoria').html(atributo);
     $('#id_categoria').val(id);
